@@ -109,9 +109,9 @@ class RequestSession:
         response = None
         try:
             if method == "post":
-                response = self.s.post(url, data)
+                response = self.s.post(url, data, verify=False)
             else:
-                response = self.s.get(url)
+                response = self.s.get(url, verify=False)
         except requests.ConnectionError as e:
             if "Errno -5" in str(e) or "Errno -2" in str(e)\
               or "Errno -3" in str(e):
